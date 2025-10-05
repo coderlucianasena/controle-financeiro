@@ -448,13 +448,17 @@ export class BudgetEnvelope {
 
     // Aplicar limite máximo se definido
     if (this._rolloverSettings.maxAmount) {
-      rolloverAmount = Money.min(rolloverAmount, this._rolloverSettings.maxAmount);
+      rolloverAmount = rolloverAmount.isLessThan(this._rolloverSettings.maxAmount) 
+        ? rolloverAmount 
+        : this._rolloverSettings.maxAmount;
     }
 
     // Aplicar porcentagem se definida
     if (this._rolloverSettings.percentage) {
       const percentageAmount = available.multiply(this._rolloverSettings.percentage / 100);
-      rolloverAmount = Money.min(rolloverAmount, percentageAmount);
+      rolloverAmount = rolloverAmount.isLessThan(percentageAmount) 
+        ? rolloverAmount 
+        : percentageAmount;
     }
 
     return rolloverAmount;

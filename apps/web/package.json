@@ -9,11 +9,10 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "test": "jest",
+    "test": "jest --setupFilesAfterEnv=./jest.setup.tsx",
     "clean": "rm -rf .next dist"
   },
   "dependencies": {
-    "@controle-financeiro/shared": "workspace:*",
     "next": "^14.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

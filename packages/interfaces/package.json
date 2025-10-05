@@ -12,10 +12,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@controle-financeiro/domain": "workspace:*",
-    "@controle-financeiro/application": "workspace:*",
-    "@controle-financeiro/infrastructure": "workspace:*",
-    "@controle-financeiro/shared": "workspace:*",
     "express": "^4.18.0",
     "cors": "^2.8.5",
     "helmet": "^7.1.0",

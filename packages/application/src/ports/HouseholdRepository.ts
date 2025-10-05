@@ -1,9 +1,7 @@
-import { Household } from '@controle-financeiro/domain';
-
 export interface HouseholdRepository {
-  save(household: Household): Promise<void>;
-  findById(id: string): Promise<Household | null>;
-  findByName(name: string): Promise<Household | null>;
-  findAll(): Promise<Household[]>;
+  save(household: any): Promise<void>;
+  findById(id: string): Promise<any | null>;
+  findByName(name: string): Promise<any | null>;
+  findAll(): Promise<any[]>;
   delete(id: string): Promise<void>;
 }

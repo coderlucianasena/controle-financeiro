@@ -12,8 +12,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@controle-financeiro/domain": "workspace:*",
-    "@controle-financeiro/application": "workspace:*",
     "pg": "^8.11.0",
     "typeorm": "^0.3.17"
   },

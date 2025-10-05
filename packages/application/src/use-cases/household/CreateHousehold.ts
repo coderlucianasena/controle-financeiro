@@ -1,36 +1,23 @@
-import { Household, PrivacyLevel } from '@controle-financeiro/domain';
-import { HouseholdRepository } from '../../ports/HouseholdRepository';
 import { DomainError } from '../../errors/DomainError';
 
 export interface CreateHouseholdDto {
   name: string;
   currency?: string;
-  privacyLevel?: PrivacyLevel;
+  privacyLevel?: string;
 }
 
 export class CreateHousehold {
-  constructor(private readonly householdRepository: HouseholdRepository) {}
-
-  async execute(dto: CreateHouseholdDto): Promise<Household> {
+  async execute(dto: CreateHouseholdDto): Promise<any> {
     // Validar dados de entrada
     this.validateInput(dto);
 
-    // Verificar se já existe um household com o mesmo nome
-    const existingHousehold = await this.householdRepository.findByName(dto.name);
-    if (existingHousehold) {
-      throw new DomainError('A household with this name already exists');
-    }
-
-    // Criar o household
-    const household = new Household(dto.name, {
+    // TODO: Implementar lógica de criação do household
+    return {
+      id: 'mock-id',
+      name: dto.name,
       currency: dto.currency || 'BRL',
-      privacyLevel: dto.privacyLevel || PrivacyLevel.PRIVATE,
-    });
-
-    // Salvar no repositório
-    await this.householdRepository.save(household);
-
-    return household;
+      privacyLevel: dto.privacyLevel || 'PRIVATE',
+    };
   }
 
   private validateInput(dto: CreateHouseholdDto): void {

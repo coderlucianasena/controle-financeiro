@@ -121,8 +121,8 @@ export class SplitRule {
   toJSON(): SplitConfig {
     return {
       ...this._config,
-      effectiveFrom: this._config.effectiveFrom.toISOString(),
-      effectiveUntil: this._config.effectiveUntil?.toISOString(),
+      effectiveFrom: this._config.effectiveFrom,
+      effectiveUntil: this._config.effectiveUntil,
     };
   }
 
