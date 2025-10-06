@@ -99,7 +99,7 @@ jobs:
         run: cd apps/web && npm run build
 
       - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
           path: |
