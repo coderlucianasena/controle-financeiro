@@ -98,10 +98,16 @@ jobs:
       - name: Build web app
         run: cd apps/web && npm run build
 
-      - name: Upload build artifacts
+      - name: Upload package build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: build-artifacts
-          path: |
-            packages/*/dist
-            apps/web/.next
+          name: packages-dist
+          path: packages/*/dist
+          if-no-files-found: ignore
+
+      - name: Upload web build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-next
+          path: apps/web/.next
+          if-no-files-found: ignore
